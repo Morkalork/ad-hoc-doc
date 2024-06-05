@@ -17,9 +17,7 @@ export function activate(context: vscode.ExtensionContext) {
       const text = fs.readFileSync(filePath, "utf8");
       const ast = generateASTFromCode(text);
       const exportedDeclarations = ast.program.body.filter(
-        (node) =>
-          node.type === "ExportNamedDeclaration" ||
-          node.type === "ExportDefaultDeclaration"
+        (node) => node.type === "ExportNamedDeclaration"
       );
 
       exportedDeclarations.forEach((node) => {
@@ -27,6 +25,7 @@ export function activate(context: vscode.ExtensionContext) {
           node,
           "ExportNamedDeclaration"
         );
+
         if (!exportNamedDeclaration || !exportNamedDeclaration.declaration) {
           return;
         }
@@ -43,7 +42,7 @@ export function activate(context: vscode.ExtensionContext) {
           "Identifier"
         );
         const name = identifier.name;
-        // Only add a comment if one doesn't already exist
+        // Only add a leading comment if one doesn't already exist
         if (!exportNamedDeclaration.leadingComments) {
           // CommentBlock is a type from @babel/types and it doesn't quite match recast :(
           type CommentableNode = ExportNamedDeclaration & {

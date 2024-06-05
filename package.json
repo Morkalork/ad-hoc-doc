@@ -20,13 +20,6 @@
       }
     ],
     "menus": {
-      "editor/context": [
-        {
-          "when": "resourceLangId == typescript || resourceLangId == javascript",
-          "command": "ad-hoc-doc.addDocumentation",
-          "group": "navigation"
-        }
-      ],
       "explorer/context": [
         {
           "when": "resourceLangId == typescript || resourceLangId == javascript",

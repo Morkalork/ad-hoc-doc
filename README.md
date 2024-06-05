@@ -12,4 +12,4 @@ Install the extension over at VS Code Marketplace. Just search for Ad Hoc Doc an
 
 ## For when?
 
-If you ever get a requirement to add 100% comment coverage of exported modules, this is your solution
+If you ever get a requirement to add 100% comment coverage of exported modules, this extension is your solution
